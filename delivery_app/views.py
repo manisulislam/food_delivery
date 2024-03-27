@@ -7,8 +7,10 @@ from .models import Organization,Item,Pricing
 
 # Create your views here.
 class PricingView(generics.GenericAPIView):
+    serializer_class=DeliverCostSerializer
+   
     def post(self, request):
-        serializer = DeliverCostSerializer(data=request.data)
+        serializer= DeliverCostSerializer(data=request.data)
         if serializer.is_valid():
             zone=serializer.validated_data.get('zone')
             organization_name=serializer.validated_data.get('organization_name')
