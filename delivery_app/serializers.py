@@ -3,8 +3,9 @@ from .models import Pricing
 
 
 
-class PricingSerializer(serializers.ModelSerializer):
+class DeliverCostSerializer(serializers.Serializer):
+    zone=serializers.CharField()
+    organization_name=serializers.CharField()
     total_distance = serializers.CharField()
-    class Meta:
-        model = Pricing
-        fields = ['zone','total_distance','item_type']
+    item_type=serializers.CharField()
+   
